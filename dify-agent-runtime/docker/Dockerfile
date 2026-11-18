@@ -5,7 +5,7 @@
 #   docker build -f docker/Dockerfile -t dify-agent-local-sandbox:local .
 
 # ── Go build stage ───────────────────────────────────────────────────────────
-FROM golang:1.26 AS go-builder
+FROM golang:1.26@sha256:4165ee6bf3b7811fd7b40373290405c83d0167dcb87ee5f29c427cdcef45ff8f AS go-builder
 
 WORKDIR /src
 COPY go.mod go.sum ./
@@ -18,7 +18,7 @@ RUN CGO_ENABLED=0 go build -o /bin/shellctl ./cmd/shellctl && \
     CGO_ENABLED=0 go build -o /bin/dify-agent ./cmd/dify-agent-cli
 
 # ── Runtime stage ────────────────────────────────────────────────────────────
-FROM python:3.13-slim-bookworm AS production
+FROM python:3.13-slim-bookworm@sha256:a5a7017efc5969e00ae2b91c8eb0631049a569652aa4ffc4501769049ae45c72 AS production
 
 ARG NODE_VERSION=24.22.3
 ARG PNPM_VERSION=11.9.0

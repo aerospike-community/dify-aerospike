@@ -28,6 +28,11 @@ jobs:
     outputs:
       knowledge-fs: ${{ steps.changes.outputs.knowledge-fs }}
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -133,6 +138,11 @@ jobs:
         shell: bash
         working-directory: .
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -430,6 +440,11 @@ jobs:
     if: needs.check-changes.outputs.knowledge-fs != 'true' && github.event_name != 'workflow_dispatch'
     runs-on: depot-ubuntu-24.04-4
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - name: Report skipped KnowledgeFS checks
         run: echo "No KnowledgeFS-related changes detected; skipping KnowledgeFS checks."
 
@@ -443,6 +458,11 @@ jobs:
       - skip
     runs-on: depot-ubuntu-24.04-4
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - name: Finalize KnowledgeFS CI status
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -501,6 +521,11 @@ jobs:
           - 8080:8080
           - 50051:50051
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
