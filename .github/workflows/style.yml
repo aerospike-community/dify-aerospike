@@ -48,6 +48,11 @@ jobs:
     runs-on: depot-ubuntu-24.04
 
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - name: Verify changed-file classification
         if: ${{ !inputs.classification-succeeded }}
         run: |
@@ -173,6 +178,11 @@ jobs:
       pull-requests: read
 
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - name: Verify changed-file classification
         if: ${{ !inputs.classification-succeeded }}
         working-directory: .
@@ -219,6 +229,11 @@ jobs:
     runs-on: depot-ubuntu-24.04
     permissions: {}
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - name: Verify web checks
         env:
           BUILD_RESULT: ${{ needs.web-build.result }}
@@ -238,6 +253,11 @@ jobs:
       pull-requests: read
 
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - name: Verify changed-file classification
         if: ${{ !inputs.classification-succeeded }}
         run: |
@@ -283,6 +303,11 @@ jobs:
     runs-on: depot-ubuntu-24.04
 
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - name: Verify changed-file classification
         if: ${{ !inputs.classification-succeeded }}
         run: |

@@ -221,3 +221,128 @@ updates:
       github-actions-dependencies:
         patterns:
           - '*'
+
+  - package-ecosystem: docker
+    directory: /.devcontainer
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: docker
+    directory: /api
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /cli
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: docker
+    directory: /dify-agent-runtime/docker
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: gomod
+    directory: /dify-agent-runtime
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: docker
+    directory: /dify-agent
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: uv
+    directory: /dify-agent
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: docker
+    directory: /docker/couchbase-server
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /e2e
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/contracts
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/dev-proxy
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/dify-ui
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/iconify-collections
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/image-resources
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/jotai-tanstack-form
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/migrate-no-unchecked-indexed-access
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/nuqs-jotai
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/openapi-content-mapper
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/openapi-content-mapper/vscode
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/tooling
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/tsconfig
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /sdks/nodejs-client
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: docker
+    directory: /web
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /web
+    schedule:
+      interval: weekly

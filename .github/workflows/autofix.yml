@@ -14,6 +14,11 @@ jobs:
     if: github.repository == 'langgenius/dify'
     runs-on: depot-ubuntu-24.04-4
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - name: Complete merge group check
         if: github.event_name == 'merge_group'
         run: echo "autofix.ci updates pull request branches, not merge group refs."
