@@ -11,6 +11,8 @@ x-shared-api-config: &shared-api-config
       required: false
     - path: ./envs/databases/redis.env
       required: false
+    - path: ./envs/vectorstores/aerospike.env
+      required: false
     - path: ./envs/vectorstores/weaviate.env
       required: false
     - path: ./envs/vectorstores/qdrant.env
@@ -83,6 +85,8 @@ x-shared-worker-config: &shared-worker-config
     - path: ./envs/databases/db-mysql.env
       required: false
     - path: ./envs/databases/redis.env
+      required: false
+    - path: ./envs/vectorstores/aerospike.env
       required: false
     - path: ./envs/vectorstores/weaviate.env
       required: false
@@ -206,6 +210,8 @@ x-shared-worker-beat-config: &shared-worker-beat-config
     - path: ./envs/databases/db-mysql.env
       required: false
     - path: ./envs/databases/redis.env
+      required: false
+    - path: ./envs/vectorstores/aerospike.env
       required: false
     - path: ./envs/vectorstores/weaviate.env
       required: false

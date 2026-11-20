@@ -1,0 +1,18 @@
+[project]
+name = "dify-vdb-aerospike"
+version = "0.0.1"
+description = "Dify Aerospike exact-KNN backend using the supplied vector preview."
+requires-python = ">=3.13"
+dependencies = [
+    "aerospike-sdk @ git+https://github.com/aerospike/aerospike-client-python-sdk.git@2a7f45248d66d8904b4daf232207baa08345a0cd",
+]
+
+[project.entry-points."dify.vector_backends"]
+aerospike = "dify_vdb_aerospike.factory:AerospikeVectorFactory"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
