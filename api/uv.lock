@@ -20,6 +20,7 @@ members = [
     "dify-trace-sdk",
     "dify-trace-tencent",
     "dify-trace-weave",
+    "dify-vdb-aerospike",
     "dify-vdb-alibabacloud-mysql",
     "dify-vdb-analyticdb",
     "dify-vdb-baidu",
@@ -57,6 +58,24 @@ overrides = [
     { name = "pyarrow", specifier = ">=23.0.1,<24.0.0" },
     { name = "setuptools", specifier = ">=84.0.0,<85" },
     { name = "wrapt", specifier = ">=2.1.1,<3.0.0" },
+]
+
+[[package]]
+name = "aerospike-async"
+version = "0.6.0a6"
+source = { git = "https://github.com/aerospike/aerospike-client-python-async.git?rev=aie%2Fvector#be04e861aa34c2384a93ac7d1c934113de3befeb" }
+dependencies = [
+    { name = "uvloop", marker = "sys_platform != 'win32'" },
+]
+
+[[package]]
+name = "aerospike-sdk"
+version = "0.9.0a5"
+source = { git = "https://github.com/aerospike/aerospike-client-python-sdk.git?rev=2a7f45248d66d8904b4daf232207baa08345a0cd#2a7f45248d66d8904b4daf232207baa08345a0cd" }
+dependencies = [
+    { name = "aerospike-async" },
+    { name = "pyyaml" },
+    { name = "typing-extensions" },
 ]
 
 [[package]]
@@ -1706,6 +1725,9 @@ trace-tencent = [
 trace-weave = [
     { name = "dify-trace-weave" },
 ]
+vdb-aerospike = [
+    { name = "dify-vdb-aerospike" },
+]
 vdb-alibabacloud-mysql = [
     { name = "dify-vdb-alibabacloud-mysql" },
 ]
@@ -2006,6 +2028,7 @@ trace-opik = [{ name = "dify-trace-opik", editable = "providers/trace/trace-opik
 trace-otel = [{ name = "dify-trace-otel", editable = "providers/trace/trace-otel" }]
 trace-tencent = [{ name = "dify-trace-tencent", editable = "providers/trace/trace-tencent" }]
 trace-weave = [{ name = "dify-trace-weave", editable = "providers/trace/trace-weave" }]
+vdb-aerospike = [{ name = "dify-vdb-aerospike", editable = "providers/vdb/vdb-aerospike" }]
 vdb-alibabacloud-mysql = [{ name = "dify-vdb-alibabacloud-mysql", editable = "providers/vdb/vdb-alibabacloud-mysql" }]
 vdb-all = [
     { name = "dify-vdb-alibabacloud-mysql", editable = "providers/vdb/vdb-alibabacloud-mysql" },
@@ -2199,6 +2222,17 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "dify-trace-sdk", editable = "providers/trace/trace-sdk" }]
+
+[[package]]
+name = "dify-vdb-aerospike"
+version = "0.0.1"
+source = { editable = "providers/vdb/vdb-aerospike" }
+dependencies = [
+    { name = "aerospike-sdk" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "aerospike-sdk", git = "https://github.com/aerospike/aerospike-client-python-sdk.git?rev=2a7f45248d66d8904b4daf232207baa08345a0cd" }]
 
 [[package]]
 name = "dify-vdb-alibabacloud-mysql"

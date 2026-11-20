@@ -20,6 +20,7 @@ from .storage.opendal_storage_config import OpenDALStorageConfig
 from .storage.supabase_storage_config import SupabaseStorageConfig
 from .storage.tencent_cos_storage_config import TencentCloudCOSStorageConfig
 from .storage.volcengine_tos_storage_config import VolcengineTOSStorageConfig
+from .vdb.aerospike_config import AerospikeConfig
 from .vdb.alibabacloud_mysql_config import AlibabaCloudMySQLConfig
 from .vdb.analyticdb_config import AnalyticdbConfig
 from .vdb.baidu_vector_config import BaiduVectorDBConfig
@@ -386,6 +387,7 @@ class MiddlewareConfig(
     VolcengineTOSStorageConfig,
     # configs of vdb and vdb providers
     VectorStoreConfig,
+    AerospikeConfig,
     AnalyticdbConfig,
     ChromaConfig,
     ClickzettaConfig,
